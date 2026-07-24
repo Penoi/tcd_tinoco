@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Merge Sort</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!--DIVS DO BABEÇALHO-->
+<div class="cabeça">
+    <div class="mainDiv">
+        <img class="logo" src="image.png" alt="">
+        <h1 style="color: white;">
+            LEARN ALGORITHMS
+        </h1>
+    </div>
+</div>
+
+<div class="container">
+
+    <h2>Merge Sort</h2>
+
+    <p class="descricao">
+        Merge Sort é um algoritmo de ordenação baseado na estratégia
+        <strong>Dividir e Conquistar (Divide and Conquer)</strong>.
+        Ele divide o vetor em partes menores, ordena cada uma delas e,
+        por fim, realiza a junção (merge) dessas partes de forma ordenada.
+    </p>
+
+    <section>
+
+        <h3>1. Como funciona?</h3>
+
+        <p>
+
+            O algoritmo segue três etapas:
+
+        </p>
+
+        <ol>
+
+            <li>Divide o vetor em duas metades.</li>
+
+            <li>Ordena cada metade recursivamente.</li>
+
+            <li>Une as duas metades ordenadas.</li>
+
+        </ol>
+
+    </section>
+
+    <section>
+
+        <h3>2. Divisão</h3>
+
+<pre>
+
+[38 27 43 3 9 82 10]
+
+        ↓
+
+[38 27 43]     [3 9 82 10]
+
+      ↓               ↓
+
+[38] [27 43]     [3 9] [82 10]
+
+</pre>
+
+    </section>
+
+    <section>
+
+        <h3>3. Merge</h3>
+
+<pre>
+
+[27] [43]
+
+↓
+
+[27 43]
+
+---------------------
+
+[3] [9]
+
+↓
+
+[3 9]
+
+---------------------
+
+[3 9] + [10 82]
+
+↓
+
+[3 9 10 82]
+
+</pre>
+
+    </section>
+
+    <section>
+
+        <h3>4. Exemplo Completo</h3>
+
+<pre>
+
+8 5 3 7 2 1
+
+↓
+
+8 5 3 | 7 2 1
+
+↓
+
+8 | 5 3
+
+↓
+
+8 | 5 | 3
+
+↓
+
+5 3
+
+↓
+
+3 5
+
+↓
+
+3 5 8
+
+↓
+
+1 2 7
+
+↓
+
+1 2 3 5 7 8
+
+</pre>
+
+    </section>
+
+    <section>
+
+        <h3>5. Complexidade</h3>
+
+        <table>
+
+            <tr>
+
+                <th>Caso</th>
+
+                <th>Tempo</th>
+
+            </tr>
+
+            <tr>
+
+                <td>Melhor</td>
+
+                <td>O(n log n)</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Médio</td>
+
+                <td>O(n log n)</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Pior</td>
+
+                <td>O(n log n)</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Memória</td>
+
+                <td>O(n)</td>
+
+            </tr>
+
+        </table>
+
+    </section>
+
+    <section>
+
+        <h3>6. Vantagens</h3>
+
+        <ul>
+
+            <li>Complexidade garantida O(n log n).</li>
+
+            <li>Algoritmo estável.</li>
+
+            <li>Excelente para grandes conjuntos de dados.</li>
+
+            <li>Muito utilizado em processamento paralelo.</li>
+
+        </ul>
+
+    </section>
+
+    <section>
+
+        <h3>7. Desvantagens</h3>
+
+        <ul>
+
+            <li>Necessita memória auxiliar.</li>
+
+            <li>Mais lento que QuickSort em muitos casos práticos.</li>
+
+            <li>Implementação mais complexa.</li>
+
+        </ul>
+
+    </section>
+
+    <section>
+
+        <h3>8. Código C++</h3>
+
+<pre><code>
+
+void mergeSort(vector<int>& v,int l,int r){
+
+    if(l>=r) return;
+
+    int m=(l+r)/2;
+
+    mergeSort(v,l,m);
+
+    mergeSort(v,m+1,r);
+
+    merge(v,l,m,r);
+
+}
+
+</code></pre>
+
+    </section>
+
+    <section>
+
+        <h3>Resumo</h3>
+
+        <p>
+
+            O Merge Sort sempre divide o problema em partes menores,
+            resolve cada parte individualmente e depois combina os
+            resultados em ordem crescente.
+
+        </p>
+
+    </section>
+
+</div>
+
+</body>
+
+</html>
