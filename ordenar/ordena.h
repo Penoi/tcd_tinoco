@@ -55,7 +55,7 @@ void selectionSort(int *vet, int tam);
 void quickSort(int *vet, int ini, int fim);
 
 /* PARTITION
-* @param vet - ALVO A SER ARTICIONADO
+* @param vet - ALVO A SER PARTICIONADO
 * @param ini - INIDICE DE INICIO
 * @param fim - INDICE DE FIM
 */
@@ -66,6 +66,13 @@ int partition(int *vet, int ini, int fim);
 * @param pos2 - POSICAO 2 A SER ALTERADA PELA 1
 */
 void swap(int *pos1, int *pos2);
+
+/* MEDIANA DE 3 
+* @param vet - ALVO A SER VERIFICADO
+* @param ini - INDICE DE INICIO
+* @param fim - INDICE DE FIM
+*/
+int medianaDeTres(int *vet, int ini, int fim);
 //======================================================
 
 
