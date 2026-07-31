@@ -7,6 +7,7 @@ int troca(int *vet, int i, int j) {
     vet[j] = temp;
     return 1;
 }
+
 // Auxiliar - Embaralha
 void embaralhar(int *vet, int tam) {
     srand(time(NULL));
@@ -32,48 +33,82 @@ int confere(int *vet, int tam){
 
 
 // selection Sort
-void selectionSort(int *vet, int tam) {
-    for(int i = 0; i < tam - 1; i++) {
-        int indiceMenor = i;
+    void selectionSort(int *vet, int tam) {
+        for(int i = 0; i < tam - 1; i++) {
+            int indiceMenor = i;
 
-        for(int j = i + 1; j < tam; j++) {
-            if(vet[j] < vet[indiceMenor]) {
-                indiceMenor = j;
+            for(int j = i + 1; j < tam; j++) {
+                if(vet[j] < vet[indiceMenor]) {
+                    indiceMenor = j;
+                }
+            }
+            if(indiceMenor != i) {
+                troca(vet, i, indiceMenor);
             }
         }
-        if(indiceMenor != i) {
-            troca(vet, i, indiceMenor);
-        }
+    }
+
+
+// Quick Sort ============================================  
+
+void quickSort(int *vet, int ini, int fim)
+{
+    if (ini < fim)
+    {
+        int ordened = partition(vet, ini, fim);
+        quickSort(vet, ini, ordened - 1);
+        quickSort(vet, ordened + 1, fim);
     }
 }
 
+int partition(int *vet, int ini, int fim)
+{
+    int pivo = medianaDeTres(vet, ini, fim);
+    int i = ini, j = fim;
 
-// Quick Sort
-void quickSort(int *vet, int l, int r) {
-
-    if(l >= r) return;
-
-    int pivo = vet[r];
-    int i = l - 1;
-
-    for(int j = l; j < r; j++) {
-        if(vet[j] <= pivo) {
+    while (i < j)
+    {
+        while (i < j && vet[i] <= pivo)
             i++;
-            int aux = vet[i];
-            vet[i] = vet[j];
-            vet[j] = aux;
-        }
+
+        while (i < j && vet[j] > pivo)
+            j--;
+
+        if (i < j)
+            swap(&vet[i], &vet[j]);
     }
 
-    int aux = vet[i + 1];
-    vet[i + 1] = vet[r];
-    vet[r] = aux;
+    if (vet[i] > pivo)
+        i--;
 
-    int posPivo = i + 1;
-
-    quickSort(vet, l, posPivo - 1);
-    quickSort(vet, posPivo + 1, r);
+    swap(&vet[ini], &vet[i]);
+    return i;
 }
+
+void swap(int *pos1, int *pos2)
+{
+    int temp = *pos1;
+    *pos1 = *pos2;
+    *pos2 = temp;
+}
+
+// ========================================================
+
+int medianaDeTres(int *vet, int ini, int fim)
+{
+    int meio = ini + (fim - ini) / 2;
+
+    if (vet[meio] < vet[ini])
+        swap(&vet[meio], &vet[ini]);
+    if (vet[fim] < vet[ini])
+        swap(&vet[fim], &vet[ini]);
+    if (vet[fim] < vet[meio])
+        swap(&vet[fim], &vet[meio]);
+
+    swap(&vet[meio], &vet[ini]);
+    return vet[ini];
+}
+
 
 
 // Merge Sort
@@ -154,8 +189,7 @@ void bubbleSort(int *vet, int size)
                 trocas = 1;
             }
         }
-        if (!trocas)
-            break;
+        if (!trocas) break;
     }
 }
 
