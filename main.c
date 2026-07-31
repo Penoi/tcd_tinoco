@@ -8,7 +8,6 @@ void menuOrdenacao();
 void choise_2(int *vet, int tam);
 void choise_3(int *vet, int tam);
 void choise_4(int *vet, int tam);
-void choise_5(int *vet, int tam);
 
 int main(){
     int choise = -1;
@@ -63,12 +62,7 @@ int main(){
 
         }
         else if(choise == 5){
-            choise_5(vet, tam);
-
-        }
-        else if (choise == 6) {
-            printf("\nEncerrando o programa...\n");
-
+            break;
         }
         
         else {
@@ -122,11 +116,6 @@ void choise_3(int *vet, int tam){
     case 5:
         quickSort(vet, 0, tam-1);
         break;
-
-    case 6:
-        selectionSort(vet, tam);
-        break;
-
     default:
         printf("Saindo...\n");
         return;
@@ -135,14 +124,6 @@ void choise_3(int *vet, int tam){
     printf("Ordenado...\n");
 }
 void choise_4(int *vet, int tam){
-}
-
-void choise_5(int *vet, int tam){
-    printf("vetor: ");
-    for(int i = 0; i < tam; i++){
-        printf("%d ", vet[i]);
-    }
-    printf("\n");
 }
 
 void menuPrincipal() {
@@ -154,8 +135,7 @@ void menuPrincipal() {
     printf(" 2 - Buscar elemento\n");
     printf(" 3 - Ordenar vetor\n");
     printf(" 4 - Gerar relatório (Log)\n");
-    printf(" 5 - Exibir vetor\n");
-    printf(" 6 - Sair\n");
+    printf(" 5 - Sair\n");
     printf("=============================================\n");
     printf("Escolha >");
 }
