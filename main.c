@@ -123,7 +123,26 @@ void choise_3(int *vet, int tam){
     }
     printf("Ordenado...\n");
 }
-void choise_4(int *vet, int tam){
+void choise_4(int *vet, int tam) {
+
+    if (vet == NULL || tam <= 0) {
+        printf(
+            "\n[ERRO] Carregue um arquivo primeiro.\n"
+        );
+
+        return;
+    }
+
+    if (gerarRelatorio(vet, tam, "log.txt")) {
+        printf(
+            "\n[OK] Relatorio gerado no arquivo log.txt.\n"
+        );
+    }
+    else {
+        printf(
+            "\n[ERRO] Falha ao gerar o relatorio.\n"
+        );
+    }
 }
 
 void menuPrincipal() {
