@@ -92,7 +92,7 @@ void swap(int *pos1, int *pos2)
     *pos2 = temp;
 }
 
-// ========================================================
+
 
 int medianaDeTres(int *vet, int ini, int fim)
 {
@@ -108,7 +108,7 @@ int medianaDeTres(int *vet, int ini, int fim)
     swap(&vet[meio], &vet[ini]);
     return vet[ini];
 }
-
+// ========================================================
 
 
 // Merge Sort
