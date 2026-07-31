@@ -140,15 +140,23 @@ void insertionSort(int *vet, int tam) {
 
 
 // Bubble Sort
-int bubbleSort(int *vet, int tam) {
-    int opera = 0;
+void bubbleSort(int *vet, int size)
+{
+    for (int i = 0; i < (size - 1); i++)
+    {
+        int trocas = 0;
 
-    for(int i = 0; i < tam - 1; i++) {
-        if(vet[i] > vet[i + 1]) {
-            opera = troca(vet, i, i + 1);
+        for (int j = 0; j < (size - 1 - i); j++)
+        {
+            if (vet[j] > vet[j + 1])
+            {
+                swap(&vet[j], &vet[j + 1]);
+                trocas = 1;
+            }
         }
+        if (!trocas)
+            break;
     }
-    return opera;
 }
 
 
