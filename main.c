@@ -1,5 +1,6 @@
 #include "ordenar/ordena.h"
 #include "buscar/buscas.h"
+#include "relatorios/relatorio.h"
 #include "arquivos/arquivos.h"
 #include <unistd.h>
 
