@@ -46,20 +46,28 @@ int confere(int *vet, int tam);
  */
 void selectionSort(int *vet, int tam);
 
-/*
- * Quick Sort
- *
- * Ordena o vetor utilizando o algoritmo Quick Sort.
- *
- * Parâmetros:
- *  vet - vetor de inteiros.
- *  l   - índice inicial (geralmente 0).
- *  r   - índice final (geralmente tamanho - 1).
- *
- * Exemplo:
- *  quickSort(vet, 0, tamanho - 1);
- */
-void quickSort(int *vet, int l, int r);
+//====================================================== QUICK SORT E AUXILIARES
+/* QUICK SORT
+ * @param vet - ALVO A SER ORDENADO
+ * @param ini - INIDICE DE INICIO
+ * @param fim - INIDICE DE FIM
+*/
+void quickSort(int *vet, int ini, int fim);
+
+/* PARTITION
+* @param vet - ALVO A SER ARTICIONADO
+* @param ini - INIDICE DE INICIO
+* @param fim - INDICE DE FIM
+*/
+int partition(int *vet, int ini, int fim);
+
+/* SWAP
+* @param pos1 - POSICAO 1 A SER ALTERADA PELA 2
+* @param pos2 - POSICAO 2 A SER ALTERADA PELA 1
+*/
+void swap(int *pos1, int *pos2);
+//======================================================
+
 
 /*
  * Merge Sort
@@ -109,3 +117,7 @@ int bubbleSort(int *vet, int tam);
  *  Quantidade de embaralhamentos realizados até a ordenação.
  */
 int bogoSort(int *vet, int tam);
+
+
+
+
