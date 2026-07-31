@@ -1,6 +1,7 @@
 #include "ordenar/ordena.h"
 #include "buscar/buscas.h"
 #include "arquivos/arquivos.h"
+#include "relatorios/relatorio.h"
 #include <unistd.h>
 
 void menuPrincipal();
