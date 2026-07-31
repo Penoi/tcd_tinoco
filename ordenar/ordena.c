@@ -154,8 +154,7 @@ void bubbleSort(int *vet, int size)
                 trocas = 1;
             }
         }
-        if (!trocas)
-            break;
+        if (!trocas) break;
     }
 }
 
