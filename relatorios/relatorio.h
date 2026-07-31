@@ -1,4 +1,3 @@
-#ifndef RELATORIO_H
 #define RELATORIO_H
 
 /*
@@ -23,5 +22,3 @@ int gerarRelatorio(
     int tam,
     const char *nomeArquivo
 );
-
-#endif
