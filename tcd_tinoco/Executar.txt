@@ -1,1 +1,0 @@
-gcc main.c arquivos/arquivos.c buscar/buscas.c ordenar/ordena.c relatorios/relatorio.c -o programa

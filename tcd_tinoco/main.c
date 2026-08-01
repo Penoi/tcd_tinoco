@@ -6,6 +6,8 @@
 
 void menuPrincipal();
 void menuOrdenacao();
+void opcoesBusca();
+void pegarTarget(int *target);
 void choise_2(int *vet, int tam);
 void choise_3(int *vet, int tam);
 void choise_4(int *vet, int tam);
@@ -28,12 +30,14 @@ int main(){
         scanf("%d", &choise);
 
         if (choise == 1) {
+            system("python tmnc.py");
+            char arquivoPy[] = {"numeros.txt"};
             char arquivo[256];
 
             printf("\nDigite o caminho do arquivo:\n> ");
             scanf("%255s", arquivo);
 
-            lerArquivo(&vet, arquivo, &tam);
+            lerArquivo(&vet, arquivoPy, &tam);
 
             if (vet == NULL) printf("\n[ERRO] Falha ao carregar o arquivo.\n");
             else printf("\n[OK] %d elementos carregados.\n", tam);
@@ -76,16 +80,26 @@ int main(){
 }
 
 void choise_2(int *vet, int tam){
-    int target;
+    int target, alg, find;
+    opcoesBusca();
+    scanf("%d", &alg);
+    if(alg == 1){
+        pegarTarget(&target);
+        find = buscaBinaria(vet, tam, target);
+    }else if(alg == 2){
+        pegarTarget(&target);
+        find = buscaLinear(vet, target);
+    }else{
+        printf("Opcao Invalida\n");
+        return;
+    }
 
-    printf("Entre com um valor para buscar\n");
-    printf("Valor: ");
-    scanf("%d", &target);
-
-    int find = buscaBinaria(vet, tam, target);
-
-    if(find == -1) printf("\nNao encontrado\n");
-    else printf("\nEncontrado na posicao: %d\n", find);
+    if(find == -1){
+        printf("\nNao encontrado\n");
+    }
+    else{
+        printf("\nEncontrado na posicao: %d\n", find);
+    } 
 
 }
 void choise_3(int *vet, int tam){
@@ -173,4 +187,15 @@ void menuOrdenacao() {
     printf(" 0 - Voltar\n");
     printf("=============================================\n");
     printf("Escolha >");
+}
+void opcoesBusca(){
+    printf("\nQual algoritmo voce deseja usar\n");
+    printf("1-Busca Binaria\n");
+    printf("2-Busca Linear\n");
+    printf("opcao: ");
+}
+void pegarTarget(int *target){
+    printf("Entre com um valor para buscar\n");
+    printf("Valor: ");
+    scanf("%d", target);
 }
